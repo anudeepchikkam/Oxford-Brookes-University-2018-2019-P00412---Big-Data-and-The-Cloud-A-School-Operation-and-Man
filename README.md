@@ -1,6 +1,82 @@
 # Oxford-Brookes-University-P00412--Big-Data-and-The-Cloud-A-School-Operation-and-Manangement-system (ASOAMS)
 
-# ASOAMS Client:                                     
+# ASOAMS Server-microservices: 
+
+# Pre-requisities
+    Node.js v10.11.0
+
+# Project setup:
+
+1. Install dependencies - yarn install
+
+2. Run the server - yarn start
+
+3. Compiles source code for production use - yarn build
+
+4. Run the tests - yarn test
+
+5. Lint and fix files accordingly - yarn lint
+
+6. Run your end-to-end tests - yarn test:e2e
+
+7. Run the unit tests - `yarn test:unit
+
+
+# Functionality & Design:
+
+   Back-end framework of choice: ExpressJS written in Typescript
+
+
+# Libraries used: 
+
+# Design architecture
+
+The server is built using a combination of Model-View-Controller and modular approach. The code is separated into several folders/categories:
+
+
+1. config - Config file that loads configuration for database connection and API host connection.
+
+2. src - The root folder where the server is written and initialised.
+
+. interfaces - A folder that contains interface entities for each user type and its actions with Mongoose.
+
+. lib - Libraries and modules written to apply Don't Repeat Yourself (DRY) technique.
+
+. models - A Object Relational Mapping library (known as Mongoose) that contains various user type models to store data in MongoDB. An example is provided below:
+
+export default interface IMeeting extends mongoose.Document{
+title: string;
+
+startDate: string;
+
+endDate: string;
+
+location: string;
+
+organiserId: IProfile['_id'];
+
+organiserProfile: object;
+
+attendees: [IProfile['_id']];
+
+description: string;
+
+typeOfMeeting: string;
+
+inviteOnly: boolean;
+}
+
+
+.routes - The middleware folder where we route each type of entity into their respective file such as Meeting.ts, Modules.ts, Users.ts and Events.ts.
+
+.server.ts - The main file that initialises the ExpressJS application with the configuration files, CORS settings, routes, middlewares and port and host logs.
+
+
+
+3. nvmrc,.gitignore,tsconfig.json, tslint.json,package.json - Configuration files to tailor the application to function ,test and render to our specification.
+
+
+# ASOAMS Client-micro services:                                     
 # Project setup:
 1. Install dependencies - yarn install
 
